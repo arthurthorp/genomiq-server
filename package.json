@@ -2,14 +2,18 @@
   "name": "genomiq",
   "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/api/index.ts"
   },
   "dependencies": {
     "elysia": "latest"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@eslint/js": "^10.0.1",
+    "bun-types": "latest",
+    "eslint": "^10.0.2",
+    "globals": "^17.3.0",
+    "jiti": "^2.6.1",
+    "typescript-eslint": "^8.56.1"
   },
   "module": "src/index.js"
 }
