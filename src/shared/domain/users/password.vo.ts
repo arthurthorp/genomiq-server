@@ -1,5 +1,5 @@
 import { HashedPassword } from "./hashed-password.vo";
-import { IHashService } from "./services/hash.interface";
+import { IHashService } from "../services/hash.interface";
 
 export class Password {
   private constructor(public readonly value: string) {}

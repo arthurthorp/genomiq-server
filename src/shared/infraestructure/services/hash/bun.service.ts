@@ -1,4 +1,4 @@
-import { IHashService } from "@/shared/domain/users/services/hash.interface";
+import { IHashService } from "@/shared/domain/services/hash.interface";
 
 export class BunHashService implements IHashService {
   private readonly algorithm = "bcrypt";

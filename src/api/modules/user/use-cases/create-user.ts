@@ -1,6 +1,6 @@
 import { IUserRepository } from "@/shared/domain/users/user.repository";
 import { CreateUserDTO } from "../dto/create-user.dto";
-import { IHashService } from "@/shared/domain/users/services/hash.interface";
+import { IHashService } from "@/shared/domain/services/hash.interface";
 import { Password } from "@/shared/domain/users/password.vo";
 import { User } from "@/shared/domain/users/user.entity";
 import { Email } from "@/shared/domain/users/email.vo";
