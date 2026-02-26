@@ -1,4 +1,5 @@
 import { Schema, model, InferSchemaType } from "mongoose";
+import { IUserDocument } from "./user.types";
 
 const UserSchema = new Schema(
   {
@@ -27,4 +28,4 @@ const UserSchema = new Schema(
 UserSchema.index({ email: 1 }, { unique: true });
 
 export type UserDocument = InferSchemaType<typeof UserSchema>;
-export const UserModel = model("User", UserSchema);
+export const UserModel = model<IUserDocument>("User", UserSchema);
