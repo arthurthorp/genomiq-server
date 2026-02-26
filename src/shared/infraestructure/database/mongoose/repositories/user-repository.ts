@@ -8,6 +8,7 @@ export class UserRepository implements IUserRepository {
   private toEntity(doc: IUserDocument): User {
     return User.reconstitute({
       id: doc._id.toString(),
+      name: doc.name,
       email: new Email(doc.email),
       password: doc.password,
       createdAt: doc.createdAt,
@@ -33,6 +34,7 @@ export class UserRepository implements IUserRepository {
     await UserModel.updateOne(
       { _id: user.id },
       {
+        name: user.name,
         email: user.email.value,
         password: user.getPassword(),
       },

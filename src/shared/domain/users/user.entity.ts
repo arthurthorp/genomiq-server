@@ -3,15 +3,22 @@ import { Email } from "./email.vo";
 export class User {
   private constructor(
     public readonly id: string,
+    public name: string,
     public email: Email,
     private password: string,
     public readonly createdAt: Date,
     public updatedAt: Date,
   ) {}
 
-  static create(params: { id: string; email: Email; password: string }): User {
+  static create(params: {
+    id: string;
+    name: string;
+    email: Email;
+    password: string;
+  }): User {
     return new User(
       params.id,
+      params.name,
       params.email,
       params.password,
       new Date(),
@@ -21,6 +28,7 @@ export class User {
 
   static reconstitute(params: {
     id: string;
+    name: string;
     email: Email;
     password: string;
     createdAt: Date;
@@ -28,6 +36,7 @@ export class User {
   }): User {
     return new User(
       params.id,
+      params.name,
       params.email,
       params.password,
       params.createdAt,
