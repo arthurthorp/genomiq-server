@@ -4,6 +4,7 @@ import { IHashService } from "@/shared/domain/services/hash.interface";
 import { Password } from "@/shared/domain/users/password.vo";
 import { User } from "@/shared/domain/users/user.entity";
 import { Email } from "@/shared/domain/users/email.vo";
+import { ConflictError } from "@/api/modules/errors/http-errors";
 
 export class CreateUserUseCase {
   constructor(
@@ -15,7 +16,7 @@ export class CreateUserUseCase {
     const email = Email.create(input.email);
 
     if (await this.userRepository.findByEmail(email)) {
-      throw new Error("Email already exists");
+      throw new ConflictError("Email already exists");
     }
 
     const password = Password.create(input.password);
