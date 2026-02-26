@@ -12,6 +12,7 @@ export const connectMongo = async () => {
 
   await mongoose.connect(env.MONGO_URL, {
     dbName: env.MONGO_DB_NAME,
+    autoIndex: env.NODE_ENV !== "production",
   });
 
   isConnected = true;
