@@ -12,15 +12,7 @@ export const UserController = {
   async create(ctx: Context<{ body: CreateUserDTO }>) {
     const input = ctx.body;
 
-    try {
-      const user = await createUserUseCase.execute(input);
-      return { status: 201, body: user };
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        return { status: 400, body: { error: err.message } };
-      } else {
-        return { status: 400, body: { error: "Erro desconhecido" } };
-      }
-    }
+    const user = await createUserUseCase.execute(input);
+    return { status: 201, body: user };
   },
 };
