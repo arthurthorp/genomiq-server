@@ -6,10 +6,6 @@ let isConnected = false;
 export const connectMongo = async () => {
   if (isConnected) return;
 
-  if (!env.MONGO_URL) {
-    throw new Error("MONGO_URL is not defined");
-  }
-
   await mongoose.connect(env.MONGO_URL, {
     dbName: env.MONGO_DB_NAME,
     autoIndex: env.NODE_ENV !== "production",

@@ -1,12 +1,12 @@
 export class Email {
-  public readonly value: string;
+  private constructor(public readonly value: string) {}
 
-  constructor(value: string) {
+  static create(value: string): Email {
     if (!value.includes("@")) {
       throw new Error("Invalid email");
     }
 
-    this.value = value.toLowerCase();
+    return new Email(value.toLowerCase());
   }
 
   equals(other: Email) {

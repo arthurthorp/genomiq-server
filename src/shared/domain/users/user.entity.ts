@@ -1,11 +1,12 @@
 import { Email } from "./email.vo";
+import { HashedPassword } from "./hashed-password.vo";
 
 export class User {
   private constructor(
     public readonly id: string,
     public name: string,
     public email: Email,
-    private password: string,
+    private password: HashedPassword,
     public readonly createdAt: Date,
     public updatedAt: Date,
   ) {}
@@ -14,7 +15,7 @@ export class User {
     id: string;
     name: string;
     email: Email;
-    password: string;
+    password: HashedPassword;
   }): User {
     return new User(
       params.id,
@@ -30,7 +31,7 @@ export class User {
     id: string;
     name: string;
     email: Email;
-    password: string;
+    password: HashedPassword;
     createdAt: Date;
     updatedAt: Date;
   }): User {

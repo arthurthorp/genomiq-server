@@ -3,6 +3,9 @@ import { IUserDocument } from "./user.types";
 
 const UserSchema = new Schema(
   {
+    _id: {
+      type: String,
+    },
     name: {
       type: String,
       required: true,
@@ -24,8 +27,6 @@ const UserSchema = new Schema(
     timestamps: true,
   },
 );
-
-UserSchema.index({ email: 1 }, { unique: true });
 
 export type UserDocument = InferSchemaType<typeof UserSchema>;
 export const UserModel = model<IUserDocument>("User", UserSchema);

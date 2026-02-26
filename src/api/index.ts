@@ -4,13 +4,21 @@ import {
   connectMongo,
   disconnectMongo,
 } from "@/shared/infraestructure/database/mongoose/connection";
+import { httpErrorHandler } from "./modules/errors/global-http-handler";
+import { userRoutes } from "./modules/user/user.routes";
 
 await connectMongo();
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(env.PORT);
+const app = new Elysia();
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
+httpErrorHandler(app);
+
+app.use(userRoutes);
+
+app.listen(env.PORT, () =>
+  console.log(
+    `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
+  ),
 );
 
 process.on("SIGINT", async () => {
