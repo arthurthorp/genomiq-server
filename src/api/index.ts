@@ -3,7 +3,7 @@ import { env } from "@/shared/config/env";
 import {
   connectMongo,
   disconnectMongo,
-} from "@/shared/infraestructure/database/mongoose/connection";
+} from "@/shared/infrastructure/persistence/mongoose/connection";
 import { httpErrorHandler } from "./modules/errors/global-http-handler";
 import { userRoutes } from "./modules/user/user.routes";
 

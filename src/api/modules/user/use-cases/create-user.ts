@@ -1,15 +1,17 @@
 import { IUserRepository } from "@/shared/domain/users/user.repository";
 import { CreateUserDTO } from "../dto/create-user.dto";
-import { IHashService } from "@/shared/domain/services/hash.interface";
+import { IHashService } from "@/shared/domain/ports/hash.interface";
 import { Password } from "@/shared/domain/users/password.vo";
 import { User } from "@/shared/domain/users/user.entity";
 import { Email } from "@/shared/domain/users/email.vo";
 import { ConflictError } from "@/api/modules/errors/http-errors";
+import { IUUIDService } from "@/shared/domain/ports/uuid.interface";
 
 export class CreateUserUseCase {
   constructor(
     private readonly userRepository: IUserRepository,
     private readonly hashService: IHashService,
+    private readonly uuidService: IUUIDService,
   ) {}
 
   async execute(input: CreateUserDTO): Promise<void> {
