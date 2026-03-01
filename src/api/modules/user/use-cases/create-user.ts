@@ -25,7 +25,7 @@ export class CreateUserUseCase {
 
     const HashedPassword = await password.hash(this.hashService);
 
-    const id = Bun.randomUUIDv7();
+    const id = this.uuidService.generate();
 
     await this.userRepository.save(
       User.create({ id, name: input.name, email, password: HashedPassword }),

@@ -6,6 +6,7 @@ import {
 } from "@/shared/infrastructure/persistence/mongoose/connection";
 import { httpErrorHandler } from "./modules/errors/global-http-handler";
 import { userRoutes } from "./modules/user/user.routes";
+import { authRoutes } from "./modules/auth/http/auth.routes";
 
 await connectMongo();
 
@@ -14,6 +15,7 @@ const app = new Elysia();
 httpErrorHandler(app);
 
 app.use(userRoutes);
+app.use(authRoutes);
 
 app.listen(env.PORT, () =>
   console.log(

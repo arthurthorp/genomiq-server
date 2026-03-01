@@ -1,3 +1,3 @@
 export interface IUUIDService {
-  generate(value: string): string;
+  generate(): string;
 }

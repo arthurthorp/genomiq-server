@@ -15,6 +15,7 @@ const envSchema = z.object({
 
   JWT_SECRET: z.string().min(10),
   JWT_EXPIRES_IN: z.string().default("1d"),
+  JWT_REFRESH_TOKEN_EXPIRES_DAYS: z.string().transform(Number).default(30),
 
   WORKER_CONCURRENCY: z.string().transform(Number).default(5),
 });

@@ -18,7 +18,8 @@ export const UserController = {
   async create(ctx: Context<{ body: CreateUserDTO }>) {
     const input = ctx.body;
 
-    const user = await createUserUseCase.execute(input);
-    return { status: 201, body: user };
+    await createUserUseCase.execute(input);
+
+    return { status: 201 };
   },
 };
